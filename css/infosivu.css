@@ -17,3 +17,7 @@ header li {
     font-weight: bold;
     font-family: "Lucida Console", monospace;
 }
+
+article {
+    text-align: center;
+}
