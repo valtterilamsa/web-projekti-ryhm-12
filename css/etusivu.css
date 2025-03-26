@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(42, 238, 160);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(7, 99, 61);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+p {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.navbar {
+    background-color:rgb(42, 238, 160);
+    padding: 10px;
+    border: 2px solid rgb(7, 99, 61);
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu li {
+    margin: 0 15px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: rgb(7, 99, 61);
+    padding: 10px;
+    background-color: rgb(42, 238, 160);
+    border-radius: 5px;
+}
+
+.content {
+    margin: 20px;
+    font-size: 18px;
+}
+
