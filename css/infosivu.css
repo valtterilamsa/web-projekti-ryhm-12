@@ -4,7 +4,7 @@
 }
 
 header {
-    margin: 10px 50px;
+    margin: 10px 20px;
     text-align: center;
     outline: rgb(7, 99, 61) solid 2px;
     padding: 10px;
@@ -13,5 +13,7 @@ header {
 header li {
     display: inline-block;
     margin-right: 100px;
-    font-size: large;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Lucida Console", monospace;
 }
