@@ -4,11 +4,14 @@
 }
 
 header {
-    margin: 10px;
+    margin: 10px 50px;
+    text-align: center;
+    outline: rgb(7, 99, 61) solid 2px;
     padding: 10px;
 }
 
-li {
+header li {
     display: inline-block;
-
+    margin-right: 100px;
+    font-size: large;
 }
