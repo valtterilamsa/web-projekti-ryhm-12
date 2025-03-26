@@ -1,0 +1,14 @@
+* {
+    background-color: rgb(42, 238, 160);
+    color:rgb(7, 99, 61);
+}
+
+header {
+    margin: 10px;
+    padding: 10px;
+}
+
+li {
+    display: inline-block;
+
+}
