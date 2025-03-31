@@ -44,6 +44,10 @@ h1 {
     border-radius: 5px;
 }
 
+.navbar a:hover {
+    color:  rgb(236, 228, 216);  
+}
+
 .content {
     margin: 20px;
     font-size: 18px;
