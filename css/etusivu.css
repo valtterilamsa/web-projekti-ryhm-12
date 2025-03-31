@@ -156,3 +156,14 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; 
+    }
+
+    .container {
+        width: 95%; 
+    }
+}
+
