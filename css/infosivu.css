@@ -5,6 +5,12 @@ body {
     color: rgb(7, 99, 61);
     font-weight: 700;
     font-size: 20px;
+    width: 80%;
+    max-width: 1800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
@@ -18,10 +24,38 @@ h1 {
     font-size: 50px;
 }
 
+.logo {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: -180px;
+}
+
+.kokonaispisteet {
+    margin-top: 300px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+.kokonaispisteet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; 
+}
+
 .navbar {
     background-color: rgb(61, 170, 126);
     padding: 10px;
     border: 2px solid rgb(7, 99, 61);
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .navbar-menu {
@@ -45,7 +79,7 @@ h1 {
 }
 
 .navbar a:hover {
-    color:  rgb(236, 228, 216);  
+    color: rgb(236, 228, 216); 
 }
 
 .content {
@@ -60,8 +94,9 @@ h1 {
     background-color: rgb(139, 233, 178);
     flex-wrap: wrap; 
     padding: 20px;
-    border-left: 2px solid rgb(7, 99, 61);
+    border-left: 2px solid rgb(7, 99, 61); 
     border-right: 2px solid rgb(7, 99, 61);
+    flex-grow: 1;
 }
 
 .content {
@@ -103,6 +138,7 @@ h1 {
     margin: 0;
     width: 100%;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 .dropdown {
@@ -169,3 +205,4 @@ h1 {
         width: 95%; 
     }
 }
+

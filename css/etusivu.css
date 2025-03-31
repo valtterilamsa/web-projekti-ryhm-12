@@ -5,6 +5,12 @@ body {
     color: rgb(7, 99, 61);
     font-weight: 700;
     font-size: 20px;
+    width: 80%;
+    max-width: 1800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
@@ -18,10 +24,21 @@ h1 {
     font-size: 50px;
 }
 
+.logo {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: -90px;
+}
+
 .navbar {
     background-color: rgb(61, 170, 126);
     padding: 10px;
     border: 2px solid rgb(7, 99, 61);
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .navbar-menu {
@@ -62,6 +79,7 @@ h1 {
     padding: 20px;
     border-left: 2px solid rgb(7, 99, 61); 
     border-right: 2px solid rgb(7, 99, 61);
+    flex-grow: 1;
 }
 
 .content {
@@ -103,6 +121,7 @@ h1 {
     margin: 0;
     width: 100%;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 .dropdown {
