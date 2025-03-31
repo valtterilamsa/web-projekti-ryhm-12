@@ -19,7 +19,7 @@ h1 {
 }
 
 .navbar {
-    background-color: rgb(42, 238, 160);
+    background-color: rgb(61, 170, 126);
     padding: 10px;
     border: 2px solid rgb(7, 99, 61);
 }
@@ -53,7 +53,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(42, 238, 160);
+    background-color: rgb(139, 233, 178);
     flex-wrap: wrap; 
     padding: 20px;
     border-left: 2px solid rgb(7, 99, 61); 
@@ -80,7 +80,7 @@ h1 {
 }
 
 .footer {
-    background-color: rgb(42, 238, 160);
+    background-color: rgb(61, 170, 126);
     color: rgb(7, 99, 61);
     text-align: center;
     padding: 2px 5px;
