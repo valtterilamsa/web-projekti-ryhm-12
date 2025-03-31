@@ -48,3 +48,24 @@ h1 {
     margin: 20px;
     font-size: 18px;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+.footer {
+    background-color: rgb(42, 238, 160);
+    color: rgb(7, 99, 61);
+    text-align: center;
+    padding: 2px 5px;
+    border: 2px solid rgb(7, 99, 61);
+    display: flex;
+    justify-content: center;
+    height: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    overflow: hidden;
+}
