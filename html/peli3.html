@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muistipeli</title>
+  <link rel="stylesheet" href="../css/peli3.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>Muistipeli</h1>
+    <P>Löydätkö maatilan eläimille omat parit?</P>
+
+    <div class="info">
+      <span id="timer">Aika: 20</span>
+      <span id="score">Pisteet: 0</span>
+    </div>
+
+    <div class="grid" id="game-board"></div>
+
+    <div class="message" id="message"></div>
+
+    <button id="start">Aloita peli</button>
+
+    <button id="restart">Aloita alusta</button>
+  </div>
+
+  <img src="../kuvat/maatila.png" alt="Maatilan ukko" class="side-image" />
+
+  <script src="../js/peli3.js"></script>
+</body>
+</html>

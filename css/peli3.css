@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(61, 170, 126);
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    position: relative; 
+  }
+  
+  .game-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  h1 {
+    color: rgb(41, 113, 22);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: rgb(41, 113, 22);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 1.1em;
+    padding: 0 10px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    width: 100%;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .card img {
+    display: none;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .card.flipped {
+    background-color: white;
+  }
+  
+  .card.flipped img {
+    display: block;
+  }
+  
+  .card:not(.flipped):hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card::before {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+  }
+  
+  .message {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: green;
+  }
+  
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e8b57;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #276947;
+  }
+  
+  #timer {
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .side-image {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    height: 220px;
+    z-index: 1;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  
+  @media (max-width: 400px) { 
+
+    .grid { 
+
+      grid-template-columns: repeat(2, 1fr); 
+
+    } 
+
+  } 
