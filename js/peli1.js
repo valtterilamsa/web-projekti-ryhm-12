@@ -1,6 +1,7 @@
 const questions =[
     {
         question: "Minkä eläimen jäljet ovat kuvassa?",
+        image: "../kuvat/karhu.jpg",
         answers: [
             { text: "Susi", correct: false},
             { text: "Hirvi", correct: false},
@@ -10,6 +11,7 @@ const questions =[
     },
     {
         question: "Minkä eläimen jäljet ovat kuvassa?",
+        image: "../kuvat/hirvi.jpg",
         answers: [
             { text: "Karhu", correct: false},
             { text: "Hirvi", correct: true},
@@ -19,6 +21,7 @@ const questions =[
     },
     {
         question: "Minkä eläimen jäljet ovat kuvassa?",
+        image: "../kuvat/jänis.jpg",
         answers: [
             { text: "Peura", correct: false},
             { text: "Päästäinen", correct: false},
@@ -28,6 +31,7 @@ const questions =[
     },
     {
         question: "Minkä eläimen jäljet ovat kuvassa?",
+        image: "../kuvat/peura.jpg",
         answers: [
             { text: "Ahma", correct: false},
             { text: "Susi", correct: false},
@@ -37,6 +41,7 @@ const questions =[
     },
     {
         question: "Minkä eläimen jäljet ovat kuvassa?",
+        image: "../kuvat/susi.jpg",
         answers: [
             { text: "Susi", correct: true},
             { text: "Pesukarhu", correct: false},
@@ -68,12 +73,20 @@ function showQuestion(){
     questionElement.innerHTML = questionNo + ". " + currentQuestion.
     question;
 
+const imageElement = document.getElementById("question-image");
+imageElement.src = currentQuestion.image;
+imageElement.style.display = "block";
+
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerButtons.appendChild(button);
-    })
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
 }
 
 
@@ -84,5 +97,50 @@ function resetState(){
     }
 }
 
+function selectAnswer(e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if(isCorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+    }else{
+        selectedBtn.classList.add("incorrect")
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+
+    nextButton.scrollIntoView({ behavior: "smooth", block: "center" });
+    
+}
+
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `Sait ${score} pistettä ${questions.length}:stä!`;
+    document.getElementById("question-image").style.display = "none";
+    nextButton.innerHTML = "Pelaa uudelleen";
+    nextButton.style.display = "block";
+}
+
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", ()=>{
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }else{
+        startQuiz();
+    }
+});
 
 startQuiz();

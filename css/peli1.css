@@ -11,9 +11,9 @@ body{
     background: #fff;
     width: 90%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 20px auto 0;
     border-radius: 10px;
-    padding: 30px;
+    padding: 15px;
 }
 .app h1{
     font-weight: 25px;
@@ -43,12 +43,15 @@ h2 {
     cursor: pointer;
     transition: 0.3s;
 }
-.btn:hover{
+.btn:hover:not([disabled]){
     background: rgb(7, 99, 61);
     color: #fff;
 }
+.btn:disabled{
+    cursor: no-drop;
+}
 #next-btn{
-    background: #001e4d;
+    background: rgb(7, 99, 61);
     color: #fff;
     font-weight: 500;
     width: 150px;
@@ -59,9 +62,20 @@ h2 {
     cursor: pointer;
     display: block;
 }
+.correct{
+    background: #9aeabc;
+}
+.incorrect{
+    background: #ff9393;
+}
 
-
-
+#question-image{
+    max-height: 300px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+}
 
 
 
