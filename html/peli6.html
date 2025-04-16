@@ -1,46 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Totta vai hupia?: Viidakon ihmeet</title>
+    <title>Totta vai Hupia?: Viidakon ihmeet</title>
     <link rel="stylesheet" href="../css/peli6.css">
+    <script defer src="peli6.js"></script>
 </head>
-    <body>
-        <div class="navbar">
-            <ul class="navbar-menu">
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="infosivu.html">Info</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Pelit</a>
-                    <ul class="dropdown-content">
-                        <li><a href="peli1.html">Peli 1</a></li>
-                        <li><a href="peli2.html">Peli 2</a></li>
-                        <li><a href="peli3.html">Peli 3</a></li>
-                        <li><a href="peli4.html">Peli 4</a></li>
-                        <li><a href="peli5.html">Peli 5</a></li>
-                        <li><a href="peli6.html">Peli 6</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<body>
+    <div class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="infosivu.html">Info</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Pelit</a>
+                <ul class="dropdown-content">
+                    <li><a href="peli1.html">Peli 1</a></li>
+                    <li><a href="peli2.html">Peli 2</a></li>
+                    <li><a href="peli3.html">Peli 3</a></li>
+                    <li><a href="peli4.html">Peli 4</a></li>
+                    <li><a href="peli5.html">Peli 5</a></li>
+                    <li><a href="peli6.html">Peli 6</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-        <h2>
-            Vastaa seuraaviin väittämiin: Totta vai Hupia?
-        </h2>
-        <div id="riquestionbox" class="riitem clearfix">
-            <span id="riquestiontext">
-            </span>
-            <i id="richeckfalse" class="fa fa-times-circle fa-3x pull-right"></i>
-            <i id="richecktrue" class="fa fa-times-circle fa-3x pull-right"></i>
-        </div>
+    <header>
+        <h1>Totta vai hupia?: Viidakon ihmeet</h1>
+    </header>
 
-        <div id="riquestionresponse" class="rihide"></div>
-        <button id="rinextquestion" class="rihide pull-right clearfix">
-            Seuraava kysymys
-        </button>
-        <button id="rireset" class="pull-right rihide clearfix">
-            Koita uudelleen
-        </button>
-    </body>
+    <button id="start" onclick="nextQuestion()">Aloita peli</button>
+
+    <div id="count"></div>
+    <div id="points"></div>
+
+    <div id="questions" style="display: none;">
+        <p id="quest"></p>
+        <button id="answerT" onclick="answer(true)" style="display: none;">Totta</button>
+        <button id="answerF" onclick="answer(false)" style="display: none;">Tarua</button>
+    </div>
+
+    <div id="winner" style="display: none;">🎉 Voitit pelin! Hyvää työtä! 🎉</div>
+    <div id="looser" style="display: none;">😢 Hävisit pelin. Kokeile uudestaan! 😢</div>
+
+    <button id="reset" onclick="restart()" style="display: none;">Pelaa uudestaan</button>
+
+    <script src="../js/peli6.js"></script>
+</body>
 </html>
