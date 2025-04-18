@@ -1,12 +1,109 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(61, 170, 126);
-    text-align: center;
-    padding: 20px;
-    margin: 0;
-    position: relative; 
-  }
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(7, 99, 61);
+  font-weight: 700;
+  font-size: 20px;
+  width: 80%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(139, 233, 178);
+}
   
+
+.navbar {
+  background-color: rgb(61, 170, 126);
+  padding: 10px;
+  border: 2px solid rgb(7, 99, 61);
+  margin-top: 5px;
+  margin-bottom: 0px;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+}
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+.navbar-menu li {
+  margin: 0 15px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: rgb(7, 99, 61);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  color: rgb(236, 228, 216); 
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: rgb(7, 99, 61);
+  padding: 10px;
+  background-color: rgb(61, 170, 126);
+  border-radius: 5px;
+  display: block;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(139, 233, 178);
+  border: 2px solid rgb(7, 99, 61);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: rgb(7, 99, 61);
+  text-decoration: none;
+  background-color: rgb(139, 233, 178);
+  border-radius: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(61, 170, 126);
+  color: rgb(236, 228, 216);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
   .game-container {
     max-width: 500px;
     margin: 0 auto;
@@ -14,7 +111,7 @@ body {
   }
   
   h1 {
-    color: rgb(41, 113, 22);
+    color:  rgb(236, 228, 216);
     font-family: 'Times New Roman', Times, serif;
     font-weight: 700;
     font-size: 40px;
@@ -22,7 +119,7 @@ body {
   }
 
   p {
-    color: rgb(41, 113, 22);
+    color: rgb(236, 228, 216);
     font-family: 'Times New Roman', Times, serif;
     font-weight: 700;
     font-size: 25px;
@@ -125,12 +222,15 @@ body {
     pointer-events: none;
   }
   
-  @media (max-width: 400px) { 
+  @media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-    .grid { 
-
-      grid-template-columns: repeat(2, 1fr); 
-
-    } 
-
-  } 
+    .image-container img {
+        position: static;
+        width: 80%;
+        margin-top: 20px;
+    }
+}
