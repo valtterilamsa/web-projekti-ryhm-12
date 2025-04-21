@@ -36,11 +36,11 @@ function showAnimal() {
         wrapper.style.margin = "10px";
 
         const playBtn = document.createElement("button");
-        playBtn.textContent = "▶ " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+        playBtn.innerHTML = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
         playBtn.onclick = () => document.getElementById(a.sound).play();
 
         const stopBtn = document.createElement("button");
-        stopBtn.textContent = "⏹ Stop";
+        stopBtn.innerHTML = "⏸️ Lopeta";
         stopBtn.onclick = () => {
             const audio = document.getElementById(a.sound);
             audio.pause();
@@ -56,6 +56,12 @@ function showAnimal() {
         wrapper.appendChild(answerBtn);
         soundButtons.appendChild(wrapper);
     });
+
+    const nextButton = document.createElement("button");
+    nextButton.textContent = "⏭ Seuraava eläin";
+    nextButton.onclick = () => goToNext();
+    nextButton.style.marginTop = "20px";
+    soundButtons.appendChild(nextButton);
 }
 
 function checkAnswer(selected) {
@@ -76,10 +82,44 @@ function checkAnswer(selected) {
         if (currentIndex < animals.length) {
             showAnimal();
         } else {
-            animalContainer.innerHTML = "<h2>Peli päättyi!</h2>";
-            soundButtons.innerHTML = "";
+            showEndScreen();
         }
     }, 1500);
 }
 
-showAnimal(); 
+function goToNext() {
+    currentIndex++;
+    if (currentIndex < animals.length) {
+        showAnimal();
+    } else {
+        showEndScreen();
+    }
+}
+
+function showEndScreen() {
+    animalContainer.innerHTML = `
+        <h2>Peli päättyi!</h2>
+        <p>Oikeita vastauksia: ${correctCount}</p>
+        <p>Vääriä vastauksia: ${wrongCount}</p>
+        <p>Kiitos pelaamisesta! 🐾</p>
+    `;
+
+    soundButtons.innerHTML = "";
+
+    const restartBtn = document.createElement("button");
+    restartBtn.textContent = "🔄 Pelaa uudelleen";
+    restartBtn.onclick = () => restartGame();
+    restartBtn.style.marginTop = "20px";
+    soundButtons.appendChild(restartBtn);
+}
+
+function restartGame() {
+    currentIndex = 0;
+    correctCount = 0;
+    wrongCount = 0;
+    correctDisplay.textContent = "0";
+    wrongDisplay.textContent = "0";
+    showAnimal();
+}
+
+showAnimal();
