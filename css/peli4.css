@@ -308,3 +308,20 @@ h1 {
     background-color: rgb(61, 170, 126);
     color: rgb(236, 228, 216);
 }
+
+.restart-btn {
+    background-color: rgb(61, 170, 126);
+    border: 2px solid rgb(7, 99, 61);
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(7, 99, 61);
+    transition: background-color 0.3s ease;
+}
+
+.restart-btn:hover {
+    background-color: rgb(7, 99, 61);
+    color: rgb(236, 228, 216);
+}
