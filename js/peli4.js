@@ -38,7 +38,9 @@ function showAnimal() {
         const audio = document.getElementById(a.sound);
 
         const toggleSoundBtn = document.createElement("button");
+        toggleSoundBtn.className = "animal-button";
         toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+        
         toggleSoundBtn.onclick = () => {
             if (audio.paused) {
                 animals.forEach(other => {
@@ -63,6 +65,7 @@ function showAnimal() {
         };
 
         const answerBtn = document.createElement("button");
+        answerBtn.className = "answer-button";
         answerBtn.textContent = "Valitse";
         answerBtn.onclick = () => checkAnswer(a.name);
 
@@ -71,6 +74,7 @@ function showAnimal() {
         soundButtons.appendChild(wrapper);
     });
 }
+
 
 function checkAnswer(selected) {
     const correct = animals[currentIndex].name;
