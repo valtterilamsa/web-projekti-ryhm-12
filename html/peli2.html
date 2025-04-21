@@ -26,6 +26,50 @@
     </div>
 </div>
 <h1>Pörriäiset ja pensselit</h1>
+<div class="color-palette">
+    <button class="color-button" style="background-color: #FF0000;" data-color="#FF0000"></button>
+    <button class="color-button" style="background-color: #00FF00;" data-color="#00FF00"></button>
+    <button class="color-button" style="background-color: #0000FF;" data-color="#0000FF"></button>
+    <button class="color-button" style="background-color: #FFFF00;" data-color="#FFFF00"></button>
+    <button class="color-button" style="background-color: #FFA500;" data-color="#FFA500"></button>
+    <button class="color-button" style="background-color: #800080;" data-color="#800080"></button>
+  </div>
+
+  <!-- SVG-kuva: Mehiläinen ja perhonen -->
+  <svg viewBox="0 0 400 200">
+    <!-- Mehiläinen -->
+    <ellipse cx="100" cy="100" rx="40" ry="25" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- keho -->
+    <circle cx="60" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- pää -->
+    <line x1="55" y1="90" x2="45" y2="70" stroke="#000" stroke-width="2"/> <!-- tuntosarvi -->
+    <line x1="65" y1="90" x2="75" y2="70" stroke="#000" stroke-width="2"/>
+    <ellipse cx="85" cy="80" rx="15" ry="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- siipi -->
+    <ellipse cx="115" cy="80" rx="15" ry="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- siipi -->
+
+    <!-- Perhonen -->
+    <circle cx="300" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vartalo -->
+    <ellipse cx="280" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vasen yläsiipi -->
+    <ellipse cx="280" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vasen alasiipi -->
+    <ellipse cx="320" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- oikea yläsiipi -->
+    <ellipse cx="320" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- oikea alasiipi -->
+  </svg>
+
+  <script>
+    let selectedColor = '#FF0000'; // Oletusväri
+
+    const colorButtons = document.querySelectorAll('.color-button');
+    colorButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        selectedColor = button.getAttribute('data-color');
+      });
+    });
+
+    const colorables = document.querySelectorAll('.colorable');
+    colorables.forEach(elem => {
+      elem.addEventListener('click', () => {
+        elem.setAttribute('fill', selectedColor);
+      });
+    });
+  </script>
 </body>
 </html>
 

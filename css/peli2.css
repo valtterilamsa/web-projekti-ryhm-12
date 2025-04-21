@@ -195,3 +195,34 @@ h1 {
     }
 }
 
+  
+  svg {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .color-palette {
+    margin: 20px;
+  }
+  
+  .color-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+ 
+  
+
+  
+  
+  
