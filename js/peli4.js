@@ -35,43 +35,51 @@ function showAnimal() {
         const wrapper = document.createElement("div");
         wrapper.style.margin = "10px";
 
-        const playBtn = document.createElement("button");
-        playBtn.innerHTML = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
-        playBtn.onclick = () => document.getElementById(a.sound).play();
+        const audio = document.getElementById(a.sound);
 
-        const stopBtn = document.createElement("button");
-        stopBtn.innerHTML = "⏸️ Lopeta";
-        stopBtn.onclick = () => {
-            const audio = document.getElementById(a.sound);
-            audio.pause();
-            audio.currentTime = 0;
+        const toggleSoundBtn = document.createElement("button");
+        toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+        toggleSoundBtn.onclick = () => {
+            if (audio.paused) {
+                animals.forEach(other => {
+                    const otherAudio = document.getElementById(other.sound);
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                        otherAudio.currentTime = 0;
+                    }
+                });
+
+                audio.play();
+                toggleSoundBtn.textContent = "⏸️ " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+            }
+        };
+
+        audio.onended = () => {
+            toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
         };
 
         const answerBtn = document.createElement("button");
         answerBtn.textContent = "Valitse";
         answerBtn.onclick = () => checkAnswer(a.name);
 
-        wrapper.appendChild(playBtn);
-        wrapper.appendChild(stopBtn);
+        wrapper.appendChild(toggleSoundBtn);
         wrapper.appendChild(answerBtn);
         soundButtons.appendChild(wrapper);
     });
-
-    const nextButton = document.createElement("button");
-    nextButton.textContent = "⏭ Seuraava eläin";
-    nextButton.onclick = () => goToNext();
-    nextButton.style.marginTop = "20px";
-    soundButtons.appendChild(nextButton);
 }
 
 function checkAnswer(selected) {
     const correct = animals[currentIndex].name;
     if (selected === correct) {
         correctCount++;
-        result.textContent = "Oikein! 🎉";
+        result.textContent = "Oikein!";
     } else {
         wrongCount++;
-        result.textContent = `Väärin 😢 Oikea vastaus oli: ${correct}`;
+        result.textContent = `Väärin! Oikea vastaus oli: ${correct}`;
     }
 
     correctDisplay.textContent = correctCount;
@@ -85,15 +93,6 @@ function checkAnswer(selected) {
             showEndScreen();
         }
     }, 1500);
-}
-
-function goToNext() {
-    currentIndex++;
-    if (currentIndex < animals.length) {
-        showAnimal();
-    } else {
-        showEndScreen();
-    }
 }
 
 function showEndScreen() {
