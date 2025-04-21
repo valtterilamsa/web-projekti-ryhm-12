@@ -219,3 +219,13 @@ h1 {
         margin-top: 20px;
     }
 }
+
+#scoreboard {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#sound-buttons button {
+    margin: 5px;
+    font-size: 16px;
+}

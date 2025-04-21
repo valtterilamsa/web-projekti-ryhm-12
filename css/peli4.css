@@ -9,15 +9,16 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     min-height: 100vh;
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 
 p {
     font-weight: 700;
     font-size: 25px;
-    margin-top: 0;
     margin-bottom: 10px;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 h1 {
@@ -26,7 +27,7 @@ h1 {
     font-size: 50px;
     text-align: center;
     width: 100%; 
-    margin: 0;
+    margin-top: 0;
 }
 
 
@@ -47,7 +48,6 @@ h1 {
     margin-top: 5px;
     margin-bottom: 0px;
     border-radius: 20px 20px 0 0;
-    width: 100%;
 }
 
 .navbar-menu {
@@ -80,7 +80,7 @@ h1 {
 }
 
 .container {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     background-color: rgb(139, 233, 178);
@@ -92,7 +92,7 @@ h1 {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
     overflow: hidden;
 }
 
@@ -128,7 +128,6 @@ h1 {
     background-color: rgb(61, 170, 126);
     color: rgb(7, 99, 61);
     text-align: center;
-    padding: 2px 5px;
     border: 2px solid rgb(7, 99, 61);
     display: flex;
     justify-content: center;
@@ -140,9 +139,11 @@ h1 {
     width: 100%; 
     box-sizing: border-box;
     margin: 0;
+    width: 100%;
     box-sizing: border-box;
     margin-top: auto;
     border-radius: 0 0 20px 20px;
+    padding: 20px 0;
 }
 
 .dropdown {
@@ -213,3 +214,47 @@ h1 {
     }
 }
 
+.animal-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.animal-slot {
+    text-align: center;
+    width: 200px;
+}
+
+.animal-slot img {
+    width: 100%;
+    border: 3px solid rgb(7, 99, 61);
+    border-radius: 10px;
+}
+
+.drop-zone {
+    margin-top: 10px;
+    height: 40px;
+    border: 2px dashed rgb(7, 99, 61);
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    color: rgb(7, 99, 61);
+}
+
+.sound-clips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sound {
+    background-color: rgb(139, 233, 178);
+    border: 2px solid rgb(7, 99, 61);
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: grab;
+    font-size: 18px;
+}
