@@ -4,23 +4,23 @@ let flippedCards = [];
 let matchedPairs = 0;
 let timer;
 let timeLeft = 20;
+let attemptsLeft; 
 
-const gameBoard = document.getElementById('game-board');
-const timerDisplay = document.getElementById('timer');
-const scoreDisplay = document.getElementById('score');
-const messageDisplay = document.getElementById('message');
-const restartButton = document.getElementById('restart');
-const startButton = document.getElementById('start'); 
+const gameBoard       = document.getElementById('game-board');
+const timerDisplay    = document.getElementById('timer');
+const scoreDisplay    = document.getElementById('score');
+const attemptsDisplay = document.getElementById('attempts');
+const messageDisplay  = document.getElementById('message');
+const restartButton   = document.getElementById('restart');
+const startButton     = document.getElementById('start');
 
 restartButton.style.display = 'none';
 
 function createCards() {
-  const duplicated = [...animals, ...animals];
-  cards = duplicated.sort(() => 0.5 - Math.random());
-
+  const duplicated = [...animals, ...animals].sort(() => 0.5 - Math.random());
+  cards = duplicated;
   gameBoard.innerHTML = '';
-
-  cards.forEach((animal) => {
+  cards.forEach(animal => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.animal = animal;
@@ -34,27 +34,21 @@ function flipCard(card) {
   if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
     card.classList.add('flipped');
     flippedCards.push(card);
-
-    if (flippedCards.length === 2) {
-      checkMatch();
-    }
+    if (flippedCards.length === 2) checkMatch();
   }
 }
 
 function checkMatch() {
-  const [card1, card2] = flippedCards;
-  if (card1.dataset.animal === card2.dataset.animal) {
+  const [c1, c2] = flippedCards;
+  if (c1.dataset.animal === c2.dataset.animal) {
     matchedPairs++;
     scoreDisplay.textContent = `Pisteet: ${matchedPairs}`;
     flippedCards = [];
-
-    if (matchedPairs === animals.length) {
-      endGame(true);
-    }
+    if (matchedPairs === animals.length) endGame(true);
   } else {
     setTimeout(() => {
-      card1.classList.remove('flipped');
-      card2.classList.remove('flipped');
+      c1.classList.remove('flipped');
+      c2.classList.remove('flipped');
       flippedCards = [];
     }, 800);
   }
@@ -62,10 +56,8 @@ function checkMatch() {
 
 function startTimer() {
   updateTimerDisplay();
-
   timer = setInterval(() => {
     timeLeft--;
-
     if (timeLeft <= 0) {
       timeLeft = 0;
       updateTimerDisplay();
@@ -82,42 +74,85 @@ function updateTimerDisplay() {
   timerDisplay.style.color = timeLeft === 0 ? 'red' : 'black';
 }
 
+function updateAttemptsDisplay() {
+  attemptsDisplay.textContent = `Yrityksiä jäljellä: ${attemptsLeft}`;
+}
+
 function endGame(won) {
   clearInterval(timer);
-  const message = won
-    ? 'Onneksi olkoon! Kaikki parit löytyi!'
-    : 'Aika loppui! Yritä uudestaan!';
-  messageDisplay.textContent = message;
 
-  const allCards = document.querySelectorAll('.card');
-  allCards.forEach(card => card.removeEventListener('click', () => flipCard(card)));
+  const pisteviesti = ` Pisteet: ${matchedPairs}`;
+  const baseMsg = won
+    ? 'Onneksi olkoon! Kaikki parit löytyi!'
+    : 'Aika loppui!';
+  messageDisplay.textContent = baseMsg + pisteviesti;
+
+  document.querySelectorAll('.card')
+    .forEach(card => card.replaceWith(card.cloneNode(true)));
+
+  if (!won) {
+    attemptsLeft--;
+  }
+
+  if (attemptsLeft > 0) {
+    restartButton.textContent = 'Yritä uudelleen';
+    messageDisplay.textContent += ` Sinulla on vielä ${attemptsLeft} yritys jäljellä.`;
+  } else {
+    restartButton.textContent = 'Aloita alusta';
+    messageDisplay.textContent += ' Yrityskerrat loppuivat.';
+  }
 
   restartButton.style.display = 'inline-block';
+  updateAttemptsDisplay();
 }
 
 function restartGame() {
   matchedPairs = 0;
   flippedCards = [];
   timeLeft = 20;
+
   timerDisplay.style.color = 'black';
   scoreDisplay.textContent = 'Pisteet: 0';
   messageDisplay.textContent = '';
   createCards();
   clearInterval(timer);
+  updateAttemptsDisplay();
 
-  const allCards = document.querySelectorAll('.card');
-  allCards.forEach(card => card.classList.add('flipped'));
-
+  document.querySelectorAll('.card').forEach(c => c.classList.add('flipped'));
   setTimeout(() => {
-    allCards.forEach(card => card.classList.remove('flipped'));
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
     startTimer();
   }, 2000);
 }
 
 startButton.addEventListener('click', () => {
-  startButton.style.display = 'none';
-  restartButton.style.display = 'inline-block'; 
+  
+  attemptsLeft = 2;
+  updateAttemptsDisplay();
+
+  startButton.style.display   = 'none';
+  restartButton.style.display = 'inline-block';
+  restartButton.textContent   = 'Yritä uudelleen';
+
   restartGame();
 });
 
-restartButton.addEventListener('click', restartGame);
+restartButton.addEventListener('click', () => {
+  if (attemptsLeft > 0) {
+  
+    restartGame();
+  } else {
+    
+    matchedPairs = 0;
+    timeLeft = 20;
+    attemptsLeft = 2;
+    scoreDisplay.textContent    = 'Pisteet: 0';
+    timerDisplay.textContent    = `Aika: ${timeLeft}`;
+    messageDisplay.textContent  = '';
+    updateAttemptsDisplay();
+
+    startButton.style.display   = 'inline-block';
+    restartButton.style.display = 'none';
+  }
+});
+
