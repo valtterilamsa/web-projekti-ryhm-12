@@ -4,7 +4,7 @@ let flippedCards = [];
 let matchedPairs = 0;
 let timer;
 let timeLeft = 20;
-let attemptsLeft; 
+let attemptsLeft;  
 
 const gameBoard       = document.getElementById('game-board');
 const timerDisplay    = document.getElementById('timer');
@@ -94,12 +94,15 @@ function endGame(won) {
     attemptsLeft--;
   }
 
-  if (attemptsLeft > 0) {
+  if (won && attemptsLeft === 2) {
+  
+    restartButton.textContent = 'Aloita alusta';
+  } else if (!won && attemptsLeft > 0) {
     restartButton.textContent = 'Yritä uudelleen';
     messageDisplay.textContent += ` Sinulla on vielä ${attemptsLeft} yritys jäljellä.`;
   } else {
     restartButton.textContent = 'Aloita alusta';
-    messageDisplay.textContent += ' Yrityskerrat loppuivat.';
+    if (!won) messageDisplay.textContent += ' Yritykset loppuivat.';
   }
 
   restartButton.style.display = 'inline-block';
@@ -107,10 +110,10 @@ function endGame(won) {
 }
 
 function restartGame() {
-  matchedPairs = 0;
-  flippedCards = [];
-  timeLeft = 20;
 
+  matchedPairs = 0;
+  flippedCards  = [];
+  timeLeft      = 20;
   timerDisplay.style.color = 'black';
   scoreDisplay.textContent = 'Pisteet: 0';
   messageDisplay.textContent = '';
@@ -118,6 +121,7 @@ function restartGame() {
   clearInterval(timer);
   updateAttemptsDisplay();
 
+ 
   document.querySelectorAll('.card').forEach(c => c.classList.add('flipped'));
   setTimeout(() => {
     document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
@@ -125,34 +129,29 @@ function restartGame() {
   }, 2000);
 }
 
-startButton.addEventListener('click', () => {
-  
-  attemptsLeft = 2;
-  updateAttemptsDisplay();
 
+startButton.addEventListener('click', () => {
+  attemptsLeft = 2;                        
+  updateAttemptsDisplay();
   startButton.style.display   = 'none';
   restartButton.style.display = 'inline-block';
   restartButton.textContent   = 'Yritä uudelleen';
-
   restartGame();
 });
 
 restartButton.addEventListener('click', () => {
   if (attemptsLeft > 0) {
-  
-    restartGame();
+    restartGame();   
   } else {
     
     matchedPairs = 0;
-    timeLeft = 20;
+    timeLeft      = 20;
+    scoreDisplay.textContent   = 'Pisteet: 0';
+    timerDisplay.textContent   = `Aika: ${timeLeft}`;
+    messageDisplay.textContent = '';
     attemptsLeft = 2;
-    scoreDisplay.textContent    = 'Pisteet: 0';
-    timerDisplay.textContent    = `Aika: ${timeLeft}`;
-    messageDisplay.textContent  = '';
     updateAttemptsDisplay();
-
     startButton.style.display   = 'inline-block';
     restartButton.style.display = 'none';
   }
 });
-
