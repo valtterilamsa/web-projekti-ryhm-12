@@ -1,7 +1,7 @@
 # web-projekti-ryhm-12
 # jäsenet Emma, Viivi, Hilma, Valtteri, Jarkko, Inka
 # Pelien tekijät: 
-# Peli 1:
+# Peli 1: Valtteri Lämsä
 # Peli 2: 
 # Peli 3:
 # Peli 4: Inka Haarahiltunen
