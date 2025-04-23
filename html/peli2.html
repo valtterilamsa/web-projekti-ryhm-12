@@ -1,76 +1,100 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pörriäiset ja pensselit</title>
-    <link rel="stylesheet" href="../css/peli2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pörriäiset ja pensselit</title>
+  <link rel="stylesheet" href="../css/peli2.css">
+  
 </head>
 <body>
-    <div class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="index.html">Etusivu</a></li>
-            <li><a href="infosivu.html">Info</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Pelit</a>
-                <ul class="dropdown-content">
-                    <li><a href="peli1.html">Peli 1</a></li>
-                    <li><a href="peli2.html">Peli 2</a></li>
-                    <li><a href="peli3.html">Peli 3</a></li>
-                    <li><a href="peli4.html">Peli 4</a></li>
-                    <li><a href="peli5.html">Peli 5</a></li>
-                    <li><a href="peli6.html">Peli 6</a></li>
-                </ul>
-            </li>
+  <div class="navbar">
+    <ul class="navbar-menu">
+      <li><a href="index.html">Etusivu</a></li>
+      <li><a href="infosivu.html">Info</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Pelit</a>
+        <ul class="dropdown-content">
+          <li><a href="peli1.html">Peli 1</a></li>
+          <li><a href="peli2.html">Peli 2</a></li>
+          <li><a href="peli3.html">Peli 3</a></li>
+          <li><a href="peli4.html">Peli 4</a></li>
+          <li><a href="peli5.html">Peli 5</a></li>
+          <li><a href="peli6.html">Peli 6</a></li>
         </ul>
-    </div>
-</div>
-<h1>Pörriäiset ja pensselit</h1>
-<div class="color-palette">
-    <button class="color-button" style="background-color: #FF0000;" data-color="#FF0000"></button>
-    <button class="color-button" style="background-color: #00FF00;" data-color="#00FF00"></button>
-    <button class="color-button" style="background-color: #0000FF;" data-color="#0000FF"></button>
-    <button class="color-button" style="background-color: #FFFF00;" data-color="#FFFF00"></button>
-    <button class="color-button" style="background-color: #FFA500;" data-color="#FFA500"></button>
-    <button class="color-button" style="background-color: #800080;" data-color="#800080"></button>
+      </li>
+    </ul>
   </div>
 
-  <!-- SVG-kuva: Mehiläinen ja perhonen -->
-  <svg viewBox="0 0 400 200">
-    <!-- Mehiläinen -->
-    <ellipse cx="100" cy="100" rx="40" ry="25" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- keho -->
-    <circle cx="60" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- pää -->
-    <line x1="55" y1="90" x2="45" y2="70" stroke="#000" stroke-width="2"/> <!-- tuntosarvi -->
-    <line x1="65" y1="90" x2="75" y2="70" stroke="#000" stroke-width="2"/>
-    <ellipse cx="85" cy="80" rx="15" ry="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- siipi -->
-    <ellipse cx="115" cy="80" rx="15" ry="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- siipi -->
+  <div class="container">
+    <h1>Pörriäiset ja pensselit</h1>
 
-    <!-- Perhonen -->
-    <circle cx="300" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vartalo -->
-    <ellipse cx="280" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vasen yläsiipi -->
-    <ellipse cx="280" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- vasen alasiipi -->
-    <ellipse cx="320" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- oikea yläsiipi -->
-    <ellipse cx="320" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> <!-- oikea alasiipi -->
-  </svg>
+    <div class="color-palette">
+      <button class="color-button selected" style="background-color: #ff3030;" data-color="#FF0000"></button>
+      <button class="color-button" style="background-color: #82ff79;" data-color="#00FF00"></button>
+      <button class="color-button" style="background-color: #63beff;" data-color="#0000FF"></button>
+      <button class="color-button" style="background-color: #FFFF00;" data-color="#FFFF00"></button>
+      <button class="color-button" style="background-color: #ff8c00;" data-color="#FFA500"></button>
+      <button class="color-button" style="background-color: #ff26ff;" data-color="#800080"></button>
+    </div>
+
+    <button id="reset-button">Aloita alusta!</button>
+
+
+    <svg viewBox="0 0 400 200">
+      <ellipse cx="100" cy="100" rx="40" ry="25" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/>
+      <rect x="80" y="85" width="10" height="30" fill="#000000" />
+      <rect x="100" y="85" width="10" height="30" fill="#000000" />
+      <rect x="120" y="85" width="10" height="30" fill="#000000" />
+      <circle cx="60" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/>
+      <line x1="55" y1="90" x2="45" y2="70" stroke="#000" stroke-width="2"/> 
+      <line x1="65" y1="90" x2="75" y2="70" stroke="#000" stroke-width="2"/>
+    </svg>
+
+    <svg viewBox="0 0 400 200">
+      <ellipse cx="280" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> 
+      <ellipse cx="320" cy="80" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> 
+      <ellipse cx="280" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> 
+      <ellipse cx="320" cy="120" rx="20" ry="30" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> 
+      <circle cx="300" cy="100" r="10" fill="#ffffff" stroke="#000" stroke-width="2" class="colorable"/> 
+      <line x1="300" y1="90" x2="290" y2="60" stroke="#000" stroke-width="2"/> 
+      <line x1="300" y1="90" x2="310" y2="60" stroke="#000" stroke-width="2"/> 
+      <circle cx="290" cy="60" r="2.5" fill="#000"/>
+      <circle cx="310" cy="60" r="2.5" fill="#000"/>
+    </svg>
+    
+
+  <div class="footer">
+    <p>Tämä sivusto on toteutettu osana tietojenkäsittelyn web-projektin kevät 2025 kurssia. TIK24SP.</p>
+  </div>
 
   <script>
-    let selectedColor = '#FF0000'; // Oletusväri
+    let selectedColor = '#FF0000';
 
     const colorButtons = document.querySelectorAll('.color-button');
+    const colorables = document.querySelectorAll('.colorable');
+    const resetButton = document.getElementById('reset-button');
+
     colorButtons.forEach(button => {
       button.addEventListener('click', () => {
         selectedColor = button.getAttribute('data-color');
+
+        colorButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
       });
     });
 
-    const colorables = document.querySelectorAll('.colorable');
     colorables.forEach(elem => {
       elem.addEventListener('click', () => {
         elem.setAttribute('fill', selectedColor);
       });
     });
+
+    resetButton.addEventListener('click', () => {
+      colorables.forEach(elem => {
+        elem.setAttribute('fill', '#ffffff');
+      });
+    });
   </script>
 </body>
 </html>
-
-

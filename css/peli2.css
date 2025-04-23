@@ -11,7 +11,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(139, 233, 178);
 }
 
 p {
@@ -24,7 +23,6 @@ h1 {
     font-weight: 700;
     font-size: 50px;
 }
-
 
 .logo {
     max-width: 100%;
@@ -103,7 +101,6 @@ h1 {
     max-width: 600px;
     text-align: center;
 }
-
 
 
 .footer {
@@ -195,34 +192,36 @@ h1 {
     }
 }
 
-  
-  svg {
-    width: 90%;
-    max-width: 500px;
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-  }
-  
-  .color-palette {
-    margin: 20px;
-  }
-  
-  .color-button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-  
- 
-  
 
-  
-  
-  
+
+    .color-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .color-button:hover {
+      border-color: gray;
+    }
+
+    .color-button.selected {
+      border: 3px solid black;
+    }
+
+    #reset-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background-color: #eee;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
