@@ -144,3 +144,5 @@ nextButton.addEventListener("click", ()=>{
 });
 
 startQuiz();
+
+// sources https://www.w3schools.com/ https://www.youtube.com/watch?v=Vp8x8-reqZA&t=167s //
