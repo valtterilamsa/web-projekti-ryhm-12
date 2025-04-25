@@ -31,27 +31,20 @@
         <p> Yhdistä oikea ääni oikean eläimen kohdalle! </p>
         <div class="content">
             <div class="game">
-                <div id="scoreboard">
-                    <p>Oikein: <span id="correct">0</span> | Väärin: <span id="wrong">0</span></p>
-                </div>
-
                 <audio id="leijona" src="../sounds/lion.mp3"></audio>
                 <audio id="kirahvi" src="../sounds/giraffe.mp3"></audio>
                 <audio id="sarvikuono" src="../sounds/rhino.mp3"></audio>
                 <audio id="elefantti" src="../sounds/elephant.mp3"></audio>
                 <audio id="seepra" src="../sounds/zebra.mp3"></audio>
                 <audio id="virtahepo" src="../sounds/hippo.mp3"></audio>
-
-                <div id="animal-container">
-                </div>
             
-                <div id="sound-buttons">
+                <div class="game">
+                    <div class="animal-selection-area">
+                        <div id="animal-container"></div>
+                        <div id="sound-buttons" class="sound-clips"></div>
+                    </div>
+                    <p id="result"></p>
                 </div>
-            
-                <p id="result"></p>
-            </div>
-
-                <p id="result"></p>
             </div>            
         </div>
     </div>

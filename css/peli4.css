@@ -9,8 +9,6 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     min-height: 100vh;
-    display: block;
-    flex-direction: column;
 }
 
 p {
@@ -26,10 +24,9 @@ h1 {
     font-weight: 700;
     font-size: 50px;
     text-align: center;
-    width: 100%; 
+    width: 100%;
     margin-top: 0;
 }
-
 
 .logo {
     max-width: 100%;
@@ -39,7 +36,6 @@ h1 {
     position: relative;
     top: 0;
 }
-
 
 .navbar {
     background-color: rgb(61, 170, 126);
@@ -57,6 +53,7 @@ h1 {
     padding: 0;
     margin: 0;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .navbar-menu li {
@@ -71,21 +68,22 @@ h1 {
 }
 
 .navbar a:hover {
-    color: rgb(236, 228, 216); 
+    color: rgb(236, 228, 216);
 }
 
-
 .content {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    flex: 1;
+    padding: 10px;
 }
 
 .container {
     display: block;
     background-color: rgb(139, 233, 178);
     padding: 40px 20px;
-    border-left: 2px solid rgb(7, 99, 61); 
+    border-left: 2px solid rgb(7, 99, 61);
     border-right: 2px solid rgb(7, 99, 61);
     width: 100%;
     max-width: 1400px;
@@ -97,24 +95,16 @@ h1 {
     box-sizing: border-box;
 }
 
-
-.content {
-    flex: 1; 
-    padding: 10px;
-    max-width: 600px;
-    text-align: center;
-}
-
 .image-container {
     display: flex;
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
     padding: 20px;
     align-items: flex-start;
 }
 
 .image-container img {
-    width: 200px; 
+    width: 200px;
     height: auto;
     margin-top: -150px;
     position: relative;
@@ -130,22 +120,17 @@ h1 {
     justify-content: center;
     height: auto;
     list-style-type: none;
-    padding: 0;
-    margin: 20px auto;
-    overflow: hidden;
-    width: 100%; 
-    box-sizing: border-box;
-    margin: 0;
+    padding: 20px 0;
+    margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
-    margin-top: auto;
     border-radius: 0 0 20px 20px;
-    padding: 20px 0;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    margin: 0 10px;
 }
 
 .dropbtn {
@@ -209,6 +194,14 @@ h1 {
         width: 80%;
         margin-top: 20px;
     }
+
+    .navbar-menu {
+        flex-direction: column;
+    }
+
+    .dropdown {
+        margin: 10px 0;
+    }
 }
 
 .animal-slot {
@@ -222,6 +215,14 @@ h1 {
     border-radius: 10px;
 }
 
+#animal-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
 .drop-zone {
     margin-top: 10px;
     height: 40px;
@@ -249,26 +250,29 @@ h1 {
 }
 
 .game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 800px;
-    margin: 40px auto 0 auto;
+    margin-top: 40px;
+    background-color: rgb(139, 233, 178);
+    padding: 40px 20px;
+    border-radius: 12px;
 }
 
-#sound-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+#sound-buttons button {
+    background-color: rgb(61, 170, 126);
+    color: rgb(236, 228, 216);
+    border: 2px solid rgb(7, 99, 61);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background-color 0.3s ease;
 }
 
-.animal-images,
-.sound-clips {
-    justify-content: center;
+#sound-buttons button:hover {
+    background-color: rgb(7, 99, 61);
+    color: rgb(236, 228, 216);
 }
 
 .animal-button {
@@ -285,6 +289,24 @@ h1 {
     transition: all 0.3s ease;
 }
 
+.animal-selection-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+.animal-buttons, .drop-zones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
 .animal-button:hover {
     background-color: rgb(7, 99, 61);
     color: rgb(236, 228, 216);
@@ -295,13 +317,13 @@ h1 {
     color: rgb(7, 99, 61);
     border: 2px solid rgb(7, 99, 61);
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 12px 18px;
     margin: 5px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .answer-button:hover {
@@ -312,11 +334,11 @@ h1 {
 .restart-btn {
     background-color: rgb(61, 170, 126);
     border: 2px solid rgb(7, 99, 61);
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: bold;
     color: rgb(7, 99, 61);
     transition: background-color 0.3s ease;
 }
@@ -324,4 +346,13 @@ h1 {
 .restart-btn:hover {
     background-color: rgb(7, 99, 61);
     color: rgb(236, 228, 216);
+}
+
+#animal-container, .sound-clips, .answer-button, .restart-btn {
+    border-radius: 12px;
+}
+
+.sound-clips button {
+    padding: 12px 18px;
+    font-size: 18px;
 }

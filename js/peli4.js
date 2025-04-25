@@ -9,18 +9,21 @@ const animals = [
 
 let currentIndex = 0;
 let correctCount = 0;
-let wrongCount = 0;
 
 const animalContainer = document.getElementById("animal-container");
 const soundButtons = document.getElementById("sound-buttons");
 const result = document.getElementById("result");
-const correctDisplay = document.getElementById("correct");
-const wrongDisplay = document.getElementById("wrong");
 
 function showAnimal() {
     animalContainer.innerHTML = "";
     soundButtons.innerHTML = "";
-    result.textContent = "";
+
+    const scoreText = document.createElement("p");
+    scoreText.textContent = `Pisteet: ${correctCount} / ${animals.length}`;
+    scoreText.style.fontSize = "2em";
+    scoreText.style.fontWeight = "bold";
+    scoreText.style.marginBottom = "10px"; 
+    animalContainer.appendChild(scoreText);
 
     const animal = animals[currentIndex];
 
@@ -55,8 +58,6 @@ function showAnimal() {
                 audio.pause();
                 audio.currentTime = 0;
                 toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
-                toggleSoundBtn.className = "animal-button";
-                
             }
         };
 
@@ -78,14 +79,7 @@ function checkAnswer(selected) {
     const correct = animals[currentIndex].name;
     if (selected === correct) {
         correctCount++;
-        result.textContent = "Oikein!";
-    } else {
-        wrongCount++;
-        result.textContent = `Väärin! Oikea vastaus oli: ${correct}`;
     }
-
-    correctDisplay.textContent = correctCount;
-    wrongDisplay.textContent = wrongCount;
 
     setTimeout(() => {
         currentIndex++;
@@ -99,10 +93,8 @@ function checkAnswer(selected) {
 
 function showEndScreen() {
     animalContainer.innerHTML = `
-        <h2>Peli päättyi!</h2>
-        <p>Oikeita vastauksia: ${correctCount}</p>
-        <p>Vääriä vastauksia: ${wrongCount}</p>
-        <p>Kiitos pelaamisesta! 🐾</p>
+        <p>Sait ${correctCount} / ${animals.length} pistettä!</p>
+        <p>Kiitos pelaamisesta!</p>
     `;
 
     soundButtons.innerHTML = "";
@@ -117,9 +109,7 @@ function showEndScreen() {
 function restartGame() {
     currentIndex = 0;
     correctCount = 0;
-    wrongCount = 0;
-    correctDisplay.textContent = "0";
-    wrongDisplay.textContent = "0";
+
     showAnimal();
 }
 
