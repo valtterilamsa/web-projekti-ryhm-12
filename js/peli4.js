@@ -114,6 +114,12 @@ function showEndScreen() {
     animalContainer.appendChild(scoreText);
     animalContainer.appendChild(thankYouText);
     animalContainer.appendChild(restartBtn);
+
+    saveScore(correctCount);
+}
+
+function saveScore(score) {
+    localStorage.setItem('peli4_score', score);
 }
 
 function restartGame() {
@@ -128,4 +134,3 @@ animalContainer.style.position = "relative";
 animalContainer.style.marginTop = "-140px";
 
 showAnimal();
-
