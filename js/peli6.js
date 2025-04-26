@@ -21,8 +21,6 @@ function nextQuestion() {
     document.getElementById('questions').style.display = "block";
     document.getElementById('answerT').style.display = "inline-block";
     document.getElementById('answerF').style.display = "inline-block";
-    document.getElementById('winner').style.display = "none";
-    document.getElementById('looser').style.display = "none";
     document.getElementById('reset').style.display = "none";
 
     if (count >= 10 || remaining.length === 0) {
@@ -57,15 +55,30 @@ function endGame() {
     document.getElementById('answerT').style.display = "none";
     document.getElementById('answerF').style.display = "none";
 
-    if (points >= 5) {
-        document.getElementById('winner').style.display = "block";
-    } else {
-        document.getElementById('looser').style.display = "block";
-    }
+    document.getElementById('points').innerText = `Peli päättyi! Sait ${points} / 10 pistettä.`;
+    document.getElementById('count').style.display = "none";
+
+    saveScore(points);
 
     document.getElementById('reset').style.display = "block";
 }
 
+function saveScore(score) {
+    localStorage.setItem('peli6_score', score);
+}
+const score = 10;
+saveScore(score)
+
 function restart() {
-    window.location.reload();
+    points = 0;
+    count = 0;
+    remaining = [...questions];
+    currentQuestion = null;
+
+    document.getElementById('reset').style.display = "none";
+    document.getElementById('points').innerText = `Pisteet: ${points}`;
+    document.getElementById('count').innerText = ``;
+    document.getElementById('winner').style.display = "none";
+    document.getElementById('looser').style.display = "none";
+    document.getElementById('start').style.display = "inline-block";
 }
