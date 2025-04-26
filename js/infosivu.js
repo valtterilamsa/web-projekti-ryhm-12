@@ -1,7 +1,15 @@
-function addResetButton() {
-    const resetBtn = document.createElement("button");
-    resetBtn.textContent = "🔄 Nollaa pisteet";
-    resetBtn.className = "reset-btn";
-    resetBtn.onclick = resetScores;
-    document.getElementById('total-score-container').appendChild(resetBtn);
+const buttonContainer = document.getElementById('button-container');
+const resetButton = document.createElement('button');
+resetButton.textContent = 'Nollaa pisteet';
+resetButton.classList.add('reset-button');
+resetButton.onclick = () => {
+    localStorage.removeItem('totalScore');
+    updateTotalScore();
+};
+buttonContainer.appendChild(resetButton);
+
+function updateTotalScore() {
+    const totalScoreElement = document.getElementById('total-score');
+    const savedScore = localStorage.getItem('totalScore');
+    totalScoreElement.textContent = `${savedScore || 0}/25`;
 }

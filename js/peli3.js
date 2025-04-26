@@ -87,6 +87,8 @@ function endGame(won) {
     : 'Aika loppui!';
   messageDisplay.textContent = baseMsg + pisteviesti;
 
+  saveScore(matchedPairs);
+
   document.querySelectorAll('.card')
     .forEach(card => card.replaceWith(card.cloneNode(true)));
 
@@ -155,3 +157,7 @@ restartButton.addEventListener('click', () => {
     restartButton.style.display = 'none';
   }
 });
+
+function saveScore(score) {
+  localStorage.setItem('peli3_score', score);
+}

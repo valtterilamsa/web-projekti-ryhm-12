@@ -7,6 +7,8 @@ const animals = [
     { name: "virtahepo", image: "../kuvat/virtahepo.png", sound: "virtahepo" },
 ];
 
+/* Kuvien lähde: Pixabay.com*/
+
 let currentIndex = 0;
 let correctCount = 0;
 
