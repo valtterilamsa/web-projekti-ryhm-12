@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Totta vai Hupia?: Viidakon ihmeet</title>
     <link rel="stylesheet" href="../css/peli6.css">
-    <script defer src="peli6.js"></script>
+    <script defer src="../js/peli6.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -25,26 +25,32 @@
         </ul>
     </div>
 
-    <header>
-        <h1>Totta vai hupia?: Viidakon ihmeet</h1>
-    </header>
+    <div class="container">
+        <div class="content">
+            <header>
+                <h1>Totta vai Hupia?: Viidakon ihmeet</h1>
+            </header>
 
-    <button id="start" onclick="nextQuestion()">Aloita peli</button>
+            <button id="start" onclick="nextQuestion()">Aloita peli</button>
 
-    <div id="count"></div>
-    <div id="points"></div>
+            <div id="count"></div>
+            <div id="points"></div>
 
-    <div id="questions" style="display: none;">
-        <p id="quest"></p>
-        <button id="answerT" onclick="answer(true)" style="display: none;">Totta</button>
-        <button id="answerF" onclick="answer(false)" style="display: none;">Tarua</button>
+            <div id="questions" style="display: none;">
+                <p id="quest"></p>
+                <button id="answerT" onclick="answer(true)" style="display: none;">Totta</button>
+                <button id="answerF" onclick="answer(false)" style="display: none;">Tarua</button>
+            </div>
+
+            <div id="winner" style="display: none;">🎉 Voitit pelin! Hyvää työtä! 🎉</div>
+            <div id="looser" style="display: none;">😢 Hävisit pelin. Kokeile uudestaan! 😢</div>
+
+            <button id="reset" onclick="restart()" style="display: none;">Pelaa uudestaan</button>
+        </div>
     </div>
 
-    <div id="winner" style="display: none;">🎉 Voitit pelin! Hyvää työtä! 🎉</div>
-    <div id="looser" style="display: none;">😢 Hävisit pelin. Kokeile uudestaan! 😢</div>
-
-    <button id="reset" onclick="restart()" style="display: none;">Pelaa uudestaan</button>
-
-    <script src="../js/peli6.js"></script>
+    <footer class="footer">
+        <p>Tämä sivusto on toteutettu osana tietojenkäsittelyn web-projektin kevät 2025 kurssia. TIK24SP.</p>
+    </footer>
 </body>
 </html>
