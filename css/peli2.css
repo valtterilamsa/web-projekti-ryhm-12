@@ -11,8 +11,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
+    padding: 0;
+    }
+    
 p {
     font-weight: 700;
     font-size: 25px;
@@ -72,21 +73,16 @@ h1 {
     margin: 20px;
     font-size: 18px;
 }
-
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: rgb(139, 233, 178);
     padding: 20px;
     border-left: 2px solid rgb(7, 99, 61); 
     border-right: 2px solid rgb(7, 99, 61);
     flex-grow: 1;
-    width: 100%;
-    max-width: 1400px;
+    width: 100%; 
+    max-width: 100%; 
     margin: 0 auto;
-    overflow: hidden;
-  }
+}
 
 * {
     box-sizing: border-box;
@@ -99,27 +95,22 @@ h1 {
     text-align: center;
 }
 
-
 .footer {
     background-color: rgb(61, 170, 126);
     color: rgb(7, 99, 61);
     text-align: center;
-    padding: 2px 5px;
     border: 2px solid rgb(7, 99, 61);
     display: flex;
     justify-content: center;
     height: auto;
     list-style-type: none;
-    padding: 0;
-    margin: 20px auto;
-    overflow: hidden;
+    padding: 20px 0;
+    margin: 0; 
     width: 100%; 
     box-sizing: border-box;
-    margin: 0;
-    box-sizing: border-box;
-    margin-top: auto;
     border-radius: 0 0 20px 20px;
-}
+    }
+    
 
 .dropdown {
     position: relative;
