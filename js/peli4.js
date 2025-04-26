@@ -92,25 +92,40 @@ function checkAnswer(selected) {
 }
 
 function showEndScreen() {
-    animalContainer.innerHTML = `
-        <p>Sait ${correctCount} / ${animals.length} pistettä!</p>
-        <p>Kiitos pelaamisesta!</p>
-    `;
+    animalContainer.innerHTML = ""; 
+    soundButtons.innerHTML = ""; 
 
-    soundButtons.innerHTML = "";
+    const scoreText = document.createElement("p");
+    scoreText.textContent = `Sait ${correctCount} / ${animals.length} pistettä!`;
+    scoreText.style.fontSize = "28px";
+    scoreText.style.margin = "10px";
+
+    const thankYouText = document.createElement("p");
+    thankYouText.textContent = "Kiitos pelaamisesta!";
+    thankYouText.style.fontSize = "24px";
+    thankYouText.style.margin = "10px";
 
     const restartBtn = document.createElement("button");
     restartBtn.textContent = "🔄 Pelaa uudelleen";
+    restartBtn.className = "restart-btn";
     restartBtn.onclick = () => restartGame();
     restartBtn.style.marginTop = "20px";
-    soundButtons.appendChild(restartBtn);
+
+    animalContainer.appendChild(scoreText);
+    animalContainer.appendChild(thankYouText);
+    animalContainer.appendChild(restartBtn);
 }
 
 function restartGame() {
     currentIndex = 0;
     correctCount = 0;
-
-    showAnimal();
+    animalContainer.innerHTML = "";
+    soundButtons.innerHTML = "";
+    showAnimal(); 
 }
 
+animalContainer.style.position = "relative";
+animalContainer.style.marginTop = "-140px";
+
 showAnimal();
+
