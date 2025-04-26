@@ -231,18 +231,19 @@ h1 {
 }
 
 .reset-btn {
-    background-color: #4CAF50;
+    background-color: rgb(61, 170, 126);
+    border: 2px solid rgb(7, 99, 61);
     color: white;
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .reset-btn:hover {
-    background-color: #45a049;
+    background-color: rgb(7, 99, 61);
 }
