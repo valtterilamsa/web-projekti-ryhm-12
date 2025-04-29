@@ -16,6 +16,20 @@ const startButton     = document.getElementById('start');
 
 restartButton.style.display = 'none';
 
+function loadScore() {
+  const savedScore = localStorage.getItem('memoryGameScore');
+  if (savedScore) {
+    matchedPairs = parseInt(savedScore);
+    scoreDisplay.textContent = `Pisteet: ${matchedPairs}`;
+  } else {
+    scoreDisplay.textContent = 'Pisteet: 0';
+  }
+}
+
+function saveScore(score) {
+  localStorage.setItem('memoryGameScore', score);
+}
+
 function createCards() {
   const duplicated = [...animals, ...animals].sort(() => 0.5 - Math.random());
   cards = duplicated;
@@ -43,6 +57,7 @@ function checkMatch() {
   if (c1.dataset.animal === c2.dataset.animal) {
     matchedPairs++;
     scoreDisplay.textContent = `Pisteet: ${matchedPairs}`;
+    saveScore(matchedPairs); // Tallenna pistetilanne
     flippedCards = [];
     if (matchedPairs === animals.length) endGame(true);
   } else {
@@ -97,7 +112,6 @@ function endGame(won) {
   }
 
   if (won && attemptsLeft === 2) {
-  
     restartButton.textContent = 'Aloita alusta';
   } else if (!won && attemptsLeft > 0) {
     restartButton.textContent = 'Yritä uudelleen';
@@ -112,7 +126,6 @@ function endGame(won) {
 }
 
 function restartGame() {
-
   matchedPairs = 0;
   flippedCards  = [];
   timeLeft      = 20;
@@ -123,7 +136,6 @@ function restartGame() {
   clearInterval(timer);
   updateAttemptsDisplay();
 
- 
   document.querySelectorAll('.card').forEach(c => c.classList.add('flipped'));
   setTimeout(() => {
     document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
@@ -131,9 +143,8 @@ function restartGame() {
   }, 2000);
 }
 
-
 startButton.addEventListener('click', () => {
-  attemptsLeft = 2;                        
+  attemptsLeft = 2;
   updateAttemptsDisplay();
   startButton.style.display   = 'none';
   restartButton.style.display = 'inline-block';
@@ -145,7 +156,6 @@ restartButton.addEventListener('click', () => {
   if (attemptsLeft > 0) {
     restartGame();   
   } else {
-    
     matchedPairs = 0;
     timeLeft      = 20;
     scoreDisplay.textContent   = 'Pisteet: 0';
@@ -158,6 +168,5 @@ restartButton.addEventListener('click', () => {
   }
 });
 
-function saveScore(score) {
-  localStorage.setItem('peli3_score', score);
-}
+// Lataa pistetilanne pelin alussa
+loadScore();

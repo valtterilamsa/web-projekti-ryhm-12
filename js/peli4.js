@@ -43,7 +43,7 @@ function showAnimal() {
         const audio = document.getElementById(a.sound);
 
         const toggleSoundBtn = document.createElement("button");
-        toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+        toggleSoundBtn.textContent = "🔊 ";
         toggleSoundBtn.onclick = () => {
             if (audio.paused) {
                 animals.forEach(other => {
@@ -55,16 +55,16 @@ function showAnimal() {
                 });
 
                 audio.play();
-                toggleSoundBtn.textContent = "⏸️ " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+                toggleSoundBtn.textContent = "⏸️ ";
             } else {
                 audio.pause();
                 audio.currentTime = 0;
-                toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+                toggleSoundBtn.textContent = "🔊 ";
             }
         };
 
         audio.onended = () => {
-            toggleSoundBtn.textContent = "🔊 " + a.name.charAt(0).toUpperCase() + a.name.slice(1);
+            toggleSoundBtn.textContent = "🔊 ";
         };
 
         const answerBtn = document.createElement("button");
@@ -121,8 +121,13 @@ function showEndScreen() {
 }
 
 function saveScore(score) {
-    localStorage.setItem('peli4_score', score);
+    let previousScores = JSON.parse(localStorage.getItem('totalScores')) || [];
+
+    previousScores.push(score);
+
+    localStorage.setItem('totalScores', JSON.stringify(previousScores));
 }
+
 
 function restartGame() {
     currentIndex = 0;

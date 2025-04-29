@@ -106,6 +106,10 @@ function selectAnswer(e){
     }else{
         selectedBtn.classList.add("incorrect")
     }
+
+    localStorage.setItem('totalScore', score);
+
+
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
             button.classList.add("correct");
@@ -116,6 +120,7 @@ function selectAnswer(e){
 
     nextButton.scrollIntoView({ behavior: "smooth", block: "center" });
     
+    updateTotalScore();
 }
 
 function showScore(){
