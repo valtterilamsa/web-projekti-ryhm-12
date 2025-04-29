@@ -79,13 +79,10 @@ body {
     align-items: center;
     background-color: rgb(139, 233, 178);
     flex-wrap: wrap; 
-    padding: 20px;
+    padding: 40px 20px;
     border-left: 2px solid rgb(7, 99, 61); 
-    border-right: 2px solid rgb(7, 99, 61);
+    border-right: 2px solid rgb(7, 99, 61); 
     flex-grow: 1;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 20px;
     overflow: hidden;
   }
