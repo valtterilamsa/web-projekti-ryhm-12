@@ -1,0 +1,260 @@
+body {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(7, 99, 61);
+    font-weight: 700;
+    font-size: 20px;
+    width: 80%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  p {
+    font-weight: 700;
+    font-size: 25px;
+  }
+  
+  h1 {
+    color: rgb(236, 228, 216);
+    font-weight: 700;
+    font-size: 50px;
+  }
+  
+  .logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+  }
+  
+  
+  .navbar {
+    background-color: rgb(61, 170, 126);
+    padding: 10px;
+    border: 2px solid rgb(7, 99, 61);
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+  
+  .navbar-menu li {
+    margin: 0 15px;
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    color: rgb(7, 99, 61);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .navbar a:hover {
+    color: rgb(236, 228, 216); 
+  }
+  
+  .content {
+    margin: 20px;
+    font-size: 18px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(139, 233, 178);
+    flex-wrap: wrap; 
+    padding: 20px;
+    border-left: 2px solid rgb(7, 99, 61); 
+    border-right: 2px solid rgb(7, 99, 61);
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  
+  .content {
+    flex: 1; 
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    padding: 20px;
+    align-items: flex-start;
+  }
+  
+  .image-container img {
+    width: 200px; 
+    height: auto;
+    margin-top: -150px;
+    position: relative;
+    top: -200px;
+  }
+  
+  .footer {
+    background-color: rgb(61, 170, 126);
+    color: rgb(7, 99, 61);
+    text-align: center;
+    padding: 2px 5px;
+    border: 2px solid rgb(7, 99, 61);
+    display: flex;
+    justify-content: center;
+    height: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    overflow: hidden;
+    width: 100%; 
+    box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: auto;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    text-decoration: none;
+    color: rgb(7, 99, 61);
+    padding: 10px;
+    background-color: rgb(61, 170, 126);
+    border-radius: 5px;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(139, 233, 178);
+    border: 2px solid rgb(7, 99, 61);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-content li {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: rgb(7, 99, 61);
+    text-decoration: none;
+    background-color: rgb(139, 233, 178);
+    border-radius: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(61, 170, 126);
+    color: rgb(236, 228, 216);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .image-container img {
+        position: static;
+        width: 80%;
+        margin-top: 20px;
+    }
+  }
+  .game-container {
+    background-color: rgb(139, 233, 178);
+    padding: 20px;
+    flex-grow: 1;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(139, 233, 178);
+    border: 1px solid rgb(7, 99, 61);
+  }
+  
+  .wall {
+    background-color: rgb(7, 99, 61);
+  }
+  
+  .mouse {
+    background-image: url('../kuvat/hiiri.webp');
+    background-size: cover;
+  }
+  
+  .cheese {
+    background-image: url('../kuvat/juusto.webp');
+    background-size: cover;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(61, 170, 126);
+    color: rgb(236, 228, 216);
+    border: 2px solid rgb(7, 99, 61);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(7, 99, 61);
+    color: rgb(236, 228, 216);
+  }  
